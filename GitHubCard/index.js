@@ -87,6 +87,22 @@ function gitCardMaker ({avatar_url,name,login,location,html_url,followers,follow
 */
 
 const followersArray = [];
+followersArray.push('tetondan');
+followersArray.push('dustinmyers');
+followersArray.push('justsml');
+followersArray.push('luishrd');
+followersArray.push('bigknell')
+
+for(let i =0;i<followersArray.length;i++)
+{
+  axios.get(`https://api.github.com/users/${followersArray[i]}`)
+  .then((successResponse)=>{
+    const card =gitCardMaker(successResponse.data);
+    entryPoint.appendChild(card);
+  
+  })
+
+}
 
 
 
